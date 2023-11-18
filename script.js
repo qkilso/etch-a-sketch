@@ -46,11 +46,17 @@ function enableButton(){
     rainbowButton.addEventListener('click', (e)=>{
         allPixels.forEach((pixel)=>{
             pixel.addEventListener('mouseenter', ()=>{
-                pixel.style.background = 'blue';
+                var randomBetween = (min, max) => Math.floor(Math.random() * max + min);
+                var r = randomBetween(0,255);
+                var g = randomBetween(0,255);
+                var b = randomBetween(0,255);
+                pixel.style.background = `rgb(${r},${g},${b})`;
             });
         });
     });
 }
+
+
 
 
 
