@@ -71,7 +71,6 @@ function enableButton(){
             pixel.addEventListener('mouseenter', ()=>{
                 pixel.style.background = 'black';
                 pixel.style.opacity = `${darkness}`;
-                console.log(darkness);
                 if(darkness < 1){
                     darkness += .10;
                 }
