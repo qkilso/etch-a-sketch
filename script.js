@@ -82,10 +82,21 @@ function enableButton(){
         allPixels.forEach((pixel) => pixel.style.background = 'white');
     });
 }
+function idle(){
+    const inputPixel = body.querySelector('#pixel_input');
+    const pixelAmount = body.querySelector('#pixel_amount');
+    const applyButton = body.querySelector('#apply');
+    applyButton.style.visibility = 'hidden';
+    inputPixel.addEventListener('input', (options)=>{
+        pixelAmount.textContent = (options.target.value);
+        applyButton.style.visibility = 'visible';
+        
+    });
+    applyButton.addEventListener('click', ()=>{
+        createGrid(inputPixel.value);
+    });
+}
 
-
-
-
-
+idle();
 
 });
