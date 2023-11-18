@@ -21,6 +21,7 @@ function createPixel(parent, pixels){
 function createGrid(pixels){
     const canvas = setCanvas(pixels);
     createPixel(canvas, pixels);
+    enableButton();
 }
 
 function enableButton(){
@@ -28,6 +29,8 @@ function enableButton(){
     const erasorButton = body.querySelector('#erasor');
     const rainbowButton = body.querySelector('#rainbow');
     const allPixels = document.querySelectorAll('.pixel');
+    const resetButton = body.querySelector('#reset');
+
 
     blackButton.addEventListener('click', (e)=>{
         allPixels.forEach((pixel)=>{
@@ -54,8 +57,12 @@ function enableButton(){
             });
         });
     });
+    resetButton.addEventListener('click', (e)=>{
+        allPixels.forEach((pixel) => pixel.style.background = 'white');
+    });
 }
 
+createGrid(prompt());
 
 
 
