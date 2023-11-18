@@ -18,8 +18,15 @@ function createPixel(parent, pixels){
     }
 }
 
+function resetGrid(canvas){
+    while(canvas.firstChild){
+        canvas.removeChild(canvas.lastChild);
+    }
+}
+
 function createGrid(pixels){
     const canvas = setCanvas(pixels);
+    resetGrid(canvas);
     createPixel(canvas, pixels);
     enableButton();
 }
@@ -76,7 +83,7 @@ function enableButton(){
     });
 }
 
-createGrid(prompt());
+
 
 
 
