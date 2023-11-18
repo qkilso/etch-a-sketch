@@ -11,10 +11,17 @@ function createPixel(parent, pixels){
     totalPixels = pixels * pixels;
     for(let i = 0; i < totalPixels; i++){
     const pixel = document.createElement('div');
+    pixel.classList = 'pixel';
     pixel.style.background = 'white';
     pixel.style.border = '1px black solid';
     parent.appendChild(pixel);
     }
 }
+
+function createGrid(pixels){
+    const canvas = setCanvas(pixels);
+    createPixel(canvas, pixels);
+}
+
 
 });
