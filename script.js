@@ -23,5 +23,35 @@ function createGrid(pixels){
     createPixel(canvas, pixels);
 }
 
+function enableButton(){
+    const blackButton = body.querySelector('#black');
+    const erasorButton = body.querySelector('#erasor');
+    const rainbowButton = body.querySelector('#rainbow');
+    const allPixels = document.querySelectorAll('.pixel');
+
+    blackButton.addEventListener('click', (e)=>{
+        allPixels.forEach((pixel)=>{
+            pixel.addEventListener('mouseenter', ()=>{
+                pixel.style.background = 'black';
+            });
+        });
+    });
+    erasorButton.addEventListener('click', (e)=>{
+        allPixels.forEach((pixel)=>{
+            pixel.addEventListener('mouseenter', ()=>{
+                pixel.style.background = 'white';
+            });
+        });
+    });
+    rainbowButton.addEventListener('click', (e)=>{
+        allPixels.forEach((pixel)=>{
+            pixel.addEventListener('mouseenter', ()=>{
+                pixel.style.background = 'blue';
+            });
+        });
+    });
+}
+
+
 
 });
