@@ -3,7 +3,7 @@ const body = document.body;
 
 function setCanvas(pixels){
     const canvas = body.querySelector('#canvas');
-    canvas.style.cssText =`background-color: blue; display: grid; grid-template-rows: repeat(${pixels}, 1fr); grid-template-columns: repeat(${pixels}, 1fr);`;
+    canvas.style.cssText =`background-color: white; display: grid; grid-template-rows: repeat(${pixels}, 1fr); grid-template-columns: repeat(${pixels}, 1fr);`;
     return canvas;
 }
 
@@ -30,7 +30,7 @@ function enableButton(){
     const rainbowButton = body.querySelector('#rainbow');
     const allPixels = document.querySelectorAll('.pixel');
     const resetButton = body.querySelector('#reset');
-
+    const penButton = body.querySelector('#pen');
 
     blackButton.addEventListener('click', (e)=>{
         allPixels.forEach((pixel)=>{
@@ -54,6 +54,20 @@ function enableButton(){
                 var g = randomBetween(0,255);
                 var b = randomBetween(0,255);
                 pixel.style.background = `rgb(${r},${g},${b})`;
+            });
+        });
+    });
+    penButton.addEventListener('click', (e)=>{
+        let darkness = .10;
+
+        allPixels.forEach((pixel)=>{
+            pixel.addEventListener('mouseenter', ()=>{
+                pixel.style.background = 'black';
+                pixel.style.opacity = `${darkness}`;
+                console.log(darkness);
+                if(darkness < 1){
+                    darkness += .10;
+                }
             });
         });
     });
